@@ -30,8 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($stmt->execute()) {
         header("Location: _login_db.php");} 
 
-        $stmt->close();
-        $conn->close();
+    $stmt->close();
+    $conn->close();
 }
 ?>
 

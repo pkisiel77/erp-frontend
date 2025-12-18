@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email    = trim($_POST['email']);
     $pass    = $_POST['password'];
 
-// sprawdzenie czy podany login juz ie istnieje
+// sprawdzenie czy podany login juz istnieje
         $stmt = $conn->prepare(
             "SELECT user_id FROM users WHERE username=? OR email=?"
         );
@@ -32,10 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt->bind_param("sss", $username, $email, $hash);
             if ($stmt->execute()) {
                 header("Location: _login_db.php");} 
-    
-    $stmt->close();
         }
     }
+    $stmt->close();
+    $conn->close();
 ?>
 
 <!DOCTYPE html>
